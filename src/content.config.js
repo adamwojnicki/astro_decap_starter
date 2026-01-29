@@ -1,5 +1,5 @@
 import { defineCollection } from "astro:content";
-import { glob } from "astro/loaders";
+import { glob, file } from "astro/loaders";
 import { z } from "zod";
 
 const blog = defineCollection({
@@ -16,6 +16,12 @@ const blog = defineCollection({
     }),
 });
 
+const menu = defineCollection({
+    name: "menu",
+    loader: file("./src/content/restaurant-menu/restaurant-menu.json"),
+});
+
 export const collections = {
     blog,
+    menu,
 };

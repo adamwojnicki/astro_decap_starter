@@ -1,0 +1,21 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { getEntry } from "astro:content";
+
+const menu = await getEntry("menu", "items");
+---
+
+<Layout title="Menu">
+    <h1>Menu</h1>
+    <ul>
+        {
+            menu?.data.map((item: any) => (
+                <li>
+                    <h2>{item.title}</h2>
+                    <p>{item.description}</p>
+                    <p>Price: ${item.price}</p>
+                </li>
+            ))
+        }
+    </ul>
+</Layout>
