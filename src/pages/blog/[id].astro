@@ -1,6 +1,5 @@
 ---
 import { getCollection } from "astro:content";
-import Layout from "../../layouts/Layout.astro";
 import BlogPost from "../../layouts/BlogPost.astro";
 import { render } from "astro:content";
 
@@ -18,5 +17,6 @@ const { Content } = await render(post);
 
 <BlogPost title={post.data.title}>
     <h1>{post.data.title}</h1>
+    <datetime>{post.data.date}</datetime>
     <Content />
 </BlogPost>
