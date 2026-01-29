@@ -11,6 +11,7 @@ const blog = defineCollection({
         date: z.string().refine((date) => !isNaN(Date.parse(date)), {
             message: "Invalid date format",
         }),
+        author: z.string(),
         tags: z.array(z.string()).optional(),
     }),
 });

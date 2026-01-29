@@ -18,5 +18,6 @@ const { Content } = await render(post);
 <BlogPost title={post.data.title}>
     <h1>{post.data.title}</h1>
     <datetime>{post.data.date}</datetime>
+    <p>By {post.data.author}</p>
     <Content />
 </BlogPost>
