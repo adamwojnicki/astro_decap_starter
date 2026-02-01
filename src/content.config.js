@@ -3,7 +3,6 @@ import { glob, file } from "astro/loaders";
 import { z } from "zod";
 
 const blog = defineCollection({
-    name: "blog",
     loader: glob({ pattern: "**/*.md", base: "./src/content/blog/" }),
     schema: z.object({
         title: z.string().min(5),
@@ -17,8 +16,13 @@ const blog = defineCollection({
 });
 
 const menu = defineCollection({
-    name: "menu",
     loader: file("./src/content/restaurant-menu/restaurant-menu.json"),
+    schema: z.object({
+        id: z.string(),
+        title: z.string(),
+        description: z.string(),
+        price: z.number(),
+    }),
 });
 
 export const collections = {

@@ -1,14 +1,14 @@
-{
-    "items": [
-        {
-            "title": "Dish 1",
-            "description": "A delicious dish made with fresh ingredients.",
-            "price": 12.99
-        },
-        {
-            "title": "Dish 2",
-            "description": "A savory dish with a blend of spices.",
-            "price": 15.49
-        }
-    ]
-}
+[
+    {
+        "id": "dish-1",
+        "title": "Dish 1",
+        "description": "A delicious dish made with fresh ingredients.",
+        "price": 12.99
+    },
+    {
+        "id": "dish-2",
+        "title": "Dish 2",
+        "description": "A savory dish with a blend of spices.",
+        "price": 15.49
+    }
+]
