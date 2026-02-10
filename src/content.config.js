@@ -3,22 +3,18 @@ import { glob, file } from "astro/loaders";
 import { z } from "zod";
 
 const blog = defineCollection({
-    loader: glob({ pattern: "**/*.md", base: "./src/content/blog/" }),
+    loader: glob({ pattern: "**/*.mdoc", base: "./src/content/blog" }),
     schema: z.object({
-        title: z.string().min(5),
-        description: z.string().min(10),
-        date: z.string().refine((date) => !isNaN(Date.parse(date)), {
-            message: "Invalid date format",
-        }),
+        title: z.string(),
+        description: z.string(),
+        date: z.date(),
         author: z.string(),
-        tags: z.array(z.string()).optional(),
     }),
 });
 
 const menu = defineCollection({
-    loader: file("./src/content/restaurant-menu/restaurant-menu.json"),
+    loader: glob({ pattern: "**/*.json", base: "./src/content/menu" }),
     schema: z.object({
-        id: z.string(),
         title: z.string(),
         description: z.string(),
         price: z.number(),
