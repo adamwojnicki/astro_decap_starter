@@ -1,8 +1,10 @@
 ---
 import Layout from "./Layout.astro";
+
+const { title } = Astro.props;
 ---
 
-<Layout title="Blog Post Layout">
+<Layout title={title}>
     <a href="/blog">&larr; Go back</a>
     <slot />
 </Layout>

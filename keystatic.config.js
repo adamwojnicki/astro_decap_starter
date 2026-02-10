@@ -1,9 +1,11 @@
 import { config, fields, collection } from '@keystatic/core';
 
+const isDev = process.env.NODE_ENV === 'development';
+
 export default config({
-    storage: {
-        kind: 'local',
-    },
+    storage: isDev
+        ? { kind: 'local' }
+        : { kind: 'github', repo: 'user/repo' },
     collections: {
         posts: collection({
             label: 'Blog',
@@ -15,7 +17,27 @@ export default config({
                 description: fields.text({ label: 'Description' }),
                 date: fields.date({ label: 'Date' }),
                 author: fields.text({ label: 'Author' }),
-                content: fields.markdoc({ label: 'Content' }),
+                content: fields.markdoc({
+                    label: 'Content',
+                    options: {
+                        components: {
+                            callout: {
+                                label: 'Callout',
+                                schema: {
+                                    type: fields.select({
+                                        label: 'Type',
+                                        options: [
+                                            { label: 'Info', value: 'info' },
+                                            { label: 'Warning', value: 'warning' },
+                                            { label: 'Check', value: 'check' },
+                                        ],
+                                        defaultValue: 'info',
+                                    }),
+                                },
+                            },
+                        },
+                    }
+                }),
             },
         }),
         menu: collection({
