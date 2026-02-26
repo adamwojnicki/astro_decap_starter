@@ -1,3 +1,26 @@
-<div class="callout">
+<div class={`callout callout--${Astro.props.type || "info"}`}>
     <slot />
 </div>
+
+<style>
+    .callout {
+        border-radius: 4px;
+        padding: 1rem;
+        margin: 1rem 0;
+    }
+
+    .callout--info {
+        background-color: #e0f7fa;
+        border: 1px solid #b2ebf2;
+    }
+
+    .callout--warning {
+        background-color: #fff3e0;
+        border: 1px solid #ffcc80;
+    }
+
+    .callout--danger {
+        background-color: #ffebee;
+        border: 1px solid #ef9a9a;
+    }
+</style>

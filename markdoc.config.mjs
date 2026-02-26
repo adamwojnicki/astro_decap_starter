@@ -8,7 +8,7 @@ export default defineMarkdocConfig({
                 type: {
                     type: String,
                     default: 'info',
-                    matches: ['info', 'warning', 'check'],
+                    matches: ['info', 'warning', 'danger'],
                 },
             },
         },
