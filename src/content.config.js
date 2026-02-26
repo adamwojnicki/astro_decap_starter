@@ -2,6 +2,15 @@ import { defineCollection } from "astro:content";
 import { glob, file } from "astro/loaders";
 import { z } from "zod";
 
+const pages = defineCollection({
+    loader: glob({ pattern: "**/*.mdoc", base: "./src/content/pages" }),
+    schema: z.object({
+        title: z.string(),
+        description: z.string(),
+        slug: z.string().optional(),
+    }),
+});
+
 const blog = defineCollection({
     loader: glob({ pattern: "**/*.mdoc", base: "./src/content/blog" }),
     schema: z.object({
@@ -22,6 +31,7 @@ const menu = defineCollection({
 });
 
 export const collections = {
+    pages,
     blog,
     menu,
 };
