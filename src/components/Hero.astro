@@ -1,0 +1,33 @@
+---
+import Container from "./Container.astro";
+---
+
+<section class="hero">
+    <Container type="narrow">
+        <h1>Astro Basics</h1>
+        <p>
+            This is a simple hero section to demonstrate how to create a
+            reusable component in Astro. You can use this component on any page
+            by importing it and including it in the JSX.
+        </p>
+    </Container>
+</section>
+
+<style>
+    .hero {
+        background-color: #555;
+        color: white;
+        padding: 4rem 0;
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+    }
+
+    p {
+        font-size: 1.5rem;
+        color: white;
+    }
+</style>

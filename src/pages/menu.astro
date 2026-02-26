@@ -1,21 +1,24 @@
 ---
 import { getCollection } from "astro:content";
 import Layout from "../layouts/Layout.astro";
+import Container from "../components/Container.astro";
 
 const menu = await getCollection("menu");
 ---
 
 <Layout title="Menu">
-    <h1>Menu</h1>
-    <ul>
-        {
-            menu.map((item) => (
-                <li>
-                    <h2>{item.data.title}</h2>
-                    <p>{item.data.description}</p>
-                    <p>Price: ${item.data.price}</p>
-                </li>
-            ))
-        }
-    </ul>
+    <Container type="narrow">
+        <h1>Menu</h1>
+        <ul>
+            {
+                menu.map((item) => (
+                    <li>
+                        <h2>{item.data.title}</h2>
+                        <p>{item.data.description}</p>
+                        <p>Price: ${item.data.price}</p>
+                    </li>
+                ))
+            }
+        </ul>
+    </Container>
 </Layout>
