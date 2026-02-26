@@ -1,4 +1,5 @@
 import { config, fields, collection } from '@keystatic/core';
+import { wrapper } from '@keystatic/core/content-components';
 
 const isDev = process.env.NODE_ENV === 'development';
 
@@ -19,24 +20,24 @@ export default config({
                 author: fields.text({ label: 'Author' }),
                 content: fields.markdoc({
                     label: 'Content',
-                    options: {
-                        components: {
-                            callout: {
-                                label: 'Callout',
-                                schema: {
-                                    type: fields.select({
-                                        label: 'Type',
-                                        options: [
-                                            { label: 'Info', value: 'info' },
-                                            { label: 'Warning', value: 'warning' },
-                                            { label: 'Check', value: 'check' },
-                                        ],
-                                        defaultValue: 'info',
-                                    }),
-                                },
-                            },
-                        },
-                    }
+                    components: {
+                        callout: wrapper({
+                            label: 'Callout',
+                            schema: {
+                                type: fields.select({
+                                    label: 'Type',
+                                    description: 'Choose the type of callout',
+                                    options: [
+                                        { label: 'Info', value: 'info' },
+                                        { label: 'Warning', value: 'warning' },
+                                        { label: 'Danger', value: 'danger' },
+                                    ],
+                                    defaultValue: 'info'
+                                }),
+                            }
+                        }),
+                    },
+
                 }),
             },
         }),
