@@ -1,5 +1,5 @@
 import { config, fields, collection } from '@keystatic/core';
-import { wrapper } from '@keystatic/core/content-components';
+import { wrapper, block } from '@keystatic/core/content-components';
 
 const isDev = process.env.NODE_ENV === 'development';
 
@@ -34,6 +34,29 @@ export default config({
                                     ],
                                     defaultValue: 'info'
                                 }),
+                            }
+                        }),
+                    },
+
+                }),
+            },
+        }),
+        pages: collection({
+            label: 'Pages',
+            slugField: 'title',
+            path: 'src/content/pages/*',
+            format: { contentField: 'content' },
+            schema: {
+                title: fields.slug({ name: { label: 'Title' } }),
+                description: fields.text({ label: 'Description' }),
+                content: fields.markdoc({
+                    label: 'Content',
+                    components: {
+                        hero: block({
+                            label: 'Hero',
+                            schema: {
+                                title: fields.text({ label: 'Title' }),
+                                description: fields.text({ label: 'Description', multiline: true }),
                             }
                         }),
                     },

@@ -4,12 +4,8 @@ import Container from "./Container.astro";
 
 <section>
     <Container type="narrow">
-        <h1>Astro Basics</h1>
-        <p>
-            This is a simple hero section to demonstrate how to create a
-            reusable component in Astro. You can use this component on any page
-            by importing it and including it in the JSX.
-        </p>
+        <h1>{Astro.props.title}</h1>
+        <p>{Astro.props.description}</p>
     </Container>
 </section>
 

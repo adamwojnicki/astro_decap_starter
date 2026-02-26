@@ -12,5 +12,12 @@ export default defineMarkdocConfig({
                 },
             },
         },
+        hero: {
+            render: component('./src/components/Hero.astro'),
+            attributes: {
+                title: { type: String, required: true },
+                description: { type: String, required: true },
+            }
+        },
     },
 });
