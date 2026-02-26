@@ -1,0 +1,19 @@
+<div class={`container container--${Astro.props.type || ""}`.trim()}>
+    <slot />
+</div>
+
+<style>
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 1rem;
+    }
+
+    .container--narrow {
+        max-width: 800px;
+    }
+
+    .container--wide {
+        max-width: 1600px;
+    }
+</style>

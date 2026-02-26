@@ -1,0 +1,17 @@
+<a class="button" href={Astro.props.href}>{Astro.props.children}</a>
+
+<style>
+    .button {
+        display: inline-block;
+        padding: 0.5rem 1rem;
+        background-color: #007acc;
+        color: white;
+        text-decoration: none;
+        border-radius: 4px;
+        transition: background-color 0.3s ease;
+    }
+
+    .button:hover {
+        background-color: #005fa3;
+    }
+</style>
