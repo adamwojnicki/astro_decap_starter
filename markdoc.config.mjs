@@ -19,5 +19,11 @@ export default defineMarkdocConfig({
                 description: { type: String, required: true },
             }
         },
-    },
+        restaurantMenu: {
+            render: component('./src/components/RestaurantMenu.astro'),
+            attributes: {
+                title: { type: String, required: true },
+            }
+        },
+    }
 });

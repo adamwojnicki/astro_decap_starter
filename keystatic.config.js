@@ -59,6 +59,12 @@ export default config({
                                 description: fields.text({ label: 'Description', multiline: true }),
                             }
                         }),
+                        restaurantMenu: block({
+                            label: 'Restaurant Menu',
+                            schema: {
+                                title: fields.text({ label: 'Title' }),
+                            }
+                        }),
                     },
 
                 }),

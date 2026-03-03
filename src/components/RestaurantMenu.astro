@@ -1,12 +1,11 @@
 ---
+import Container from "./Container.astro";
 import { getCollection } from "astro:content";
-import Layout from "../layouts/Layout.astro";
-import Container from "../components/Container.astro";
 
 const menu = await getCollection("menu");
 ---
 
-<Layout title="Menu">
+<section>
     <Container type="narrow">
         <h1>Menu</h1>
         <ul>
@@ -21,4 +20,4 @@ const menu = await getCollection("menu");
             }
         </ul>
     </Container>
-</Layout>
+</section>
